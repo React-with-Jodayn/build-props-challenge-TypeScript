@@ -1,0 +1,11 @@
+.stylePost {
+  margin-top: 90px;
+  width: 70%;
+}
+.styleButton {
+  margin-top: 115px;
+  width: 30%;
+  border: 2px solid #017575;
+  padding: 10px 0;
+  height: fit-content;
+}
