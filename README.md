@@ -1,54 +1,53 @@
-# React + TypeScript + Vite
+# 📦 Props and Reusable Components in React (TypeScript)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates how to build **reusable components** in React using `props` and `children` with TypeScript.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 What I Learned
 
-## Expanding the ESLint configuration
+- How to pass props to components (`title`, `body`, and `children`)
+- Conditional rendering based on prop values (e.g., hide component if no title)
+- Styling components using external CSS
+- Building modular, reusable UI blocks like `Post`, `Button`, and `Header`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🧩 Component Overview
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### `App.tsx`
+- Main entry point that renders all components.
+- Stores post data and conditionally displays components like `ButtonHolder`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### `Post.tsx`
+- Displays a post card with a title and body.
+- Uses `props` and optional `children` to insert custom content above the title.
+- Skips rendering if `title` is empty.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### `Button.tsx`
+- Reusable button component styled via CSS.
+- Accepts a `btnName` as label and `children` to include icons or other elements.
+
+### `Header.tsx`
+- Fixed header with inline styling.
+
+### `ButtonHolder` (inside `App.tsx`)
+- Renders a styled panel containing multiple `Button` components with different children (icons, headings).
+
+---
+
+## 🛠️ Tech Stack
+
+- React
+- TypeScript
+- Vite
+- Font Awesome (for icons)
+
+---
+
+## 🧪 Why This Project Matters
+
+This project helped reinforce:
+- Clean code practices using props
+- Type safety with optional props and custom types
+- Structuring pages into small, testable UI components
